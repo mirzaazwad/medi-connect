@@ -1,0 +1,71 @@
+.pharmacy-card:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.pharmacy-card{
+  width: 300px!important;
+  height: 320px!important;
+  background-color: var(--customMagenta) !important;
+  border-color: white !important;
+  -webkit-box-shadow :0px 10px 40px -10px rgba(0,0,0,0.7);
+  -moz-box-shadow :0px 10px 40px -10px rgba(0,0,0,0.7);
+  box-shadow : 0px 10px 40px -10px rgba(57, 57, 57, 0.5);
+  transition: transform 0.3s ease-in-out !important;
+}
+
+.prescription-card-footer{
+  background-color: var(--customBlue);
+}
+
+.pharmacy-prescription-card{
+  width: 300px!important;
+  height: 360px!important;
+  background-color: var(--customMagenta) !important;
+  border-color: white !important;
+  -webkit-box-shadow :0px 10px 40px -10px rgba(0,0,0,0.7);
+  -moz-box-shadow :0px 10px 40px -10px rgba(0,0,0,0.7);
+  box-shadow : 0px 10px 40px -10px rgba(57, 57, 57, 0.5);
+  transition: transform 0.3s ease-in-out !important;
+}
+
+.pharmacy-card-text{
+  color:whitesmoke;
+}
+
+.searchbar{
+  margin-top:0% !important;
+  margin-bottom: 1% !important;
+}
+
+.pharmacy-card-image{
+  width: 300px!important;
+  height: 200px!important;
+  object-fit: cover!important;
+}
+
+.pharmacy-container{
+  width:100% !important;
+  height:100vh !important;
+}
+
+.pharmacy-content{
+  margin-top:5rem!important;
+}
+
+
+.btn.btn-search{
+  --bs-btn-bg: var(--customBlue) !important;
+  color: white !important;
+  --bs-btn-hover-bg: var(--customMagenta)!important;
+  --bs-btn-hover-border-color : var(--customMagenta)!important;
+}
+
+@media(max-width:768px){
+  .searchbar{
+    width:100% !important;
+  }
+
+  .search{
+    margin-left:10% !important;
+  }
+}
