@@ -10,8 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@ionic/react": "^7.3.0",
+    "@react-google-maps/api": "^2.19.2",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.1",
+    "crypto-js": "^4.1.1",
+    "dompurify": "^3.0.5",
+    "ionicons": "^7.1.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-bootstrap": "^2.8.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "react18-input-otp": "^1.1.4",
+    "use-places-autocomplete": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
