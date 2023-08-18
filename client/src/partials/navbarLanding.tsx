@@ -4,7 +4,7 @@ const NavbarLanding = () => {
   return (
     <Navbar className='customNavbar fixed-top ' variant="dark" expand="lg">
     <Container fluid className='navbarContents px-0 px-lg-5 d-flex justify-content-between' >
-      <Navbar.Brand className='px-2' href="#">M e d G u a r d</Navbar.Brand>
+      <Navbar.Brand className='px-2' href="#">M e d i C o n n e c t</Navbar.Brand>
       <Navbar.Toggle className='px-2' aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

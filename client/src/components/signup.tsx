@@ -53,31 +53,31 @@ const SignUp = ({ changeState }: SignUpProps) => {
           <div className="radio-button-group">
             <button
               className={`radio-button ${
-                userType === "manager" ? "radio-button" : "radio-button-outline"
+                userType === "Administrator" ? "radio-button" : "radio-button-outline"
               }`}
-              onClick={() => setUserType("manager")}
+              onClick={() => setUserType("Administrator")}
             >
-              Manager
+              Administrator
             </button>
             <button
               className={`radio-button ${
-                userType === "customer"
+                userType === "Patient"
                   ? "radio-button"
                   : "radio-button-outline"
               }`}
-              onClick={() => setUserType("customer")}
+              onClick={() => setUserType("Patient")}
             >
-              Customer
+              Patient
             </button>
             <button
               className={`radio-button ${
-                userType === "delivery"
+                userType === "Doctor"
                   ? "radio-button"
                   : "radio-button-outline"
               }`}
-              onClick={() => setUserType("delivery")}
+              onClick={() => setUserType("Doctor")}
             >
-              Delivery
+              Doctor
             </button>
           </div>
 

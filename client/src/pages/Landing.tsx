@@ -14,12 +14,11 @@ const Landing = () => {
     <div className="landing-container">
         <div className="landing-card">
           <div className="landing-content">
-            <span className="heading">Pharmacy Management System</span>
-            <h1>MedGuard</h1>
+            <span className="heading">Healthcare Management System</span>
+            <h1>MediConnect</h1>
             <p>
-            MedGuard is an online platform connecting customers with local pharmacies. 
-            This platform aims to make medicine purchase more convenient and efficient for customers.
-
+            MediConnect is a versatile medical platform that provides services to connect patients with
+licensed healthcare professionals, enabling convenient and accessible healthcare solutions
             </p>
           </div>
           <div className="get-started">
