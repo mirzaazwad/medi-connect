@@ -9,7 +9,7 @@ const libraries: Libraries = ['places'];
 
 const Map = ({location,address,placesAutoComplete,modalMap}:MapLocation) => {
   const { isLoaded }: { isLoaded: boolean } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GMPKEY || '', 
+    googleMapsApiKey: '', 
     libraries,
   });
   if (!isLoaded) {

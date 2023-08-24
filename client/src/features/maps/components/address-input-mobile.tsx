@@ -44,6 +44,7 @@ const AddressInputPhone = ({address,location,placesAutoComplete,disabled}:Addres
                   value={address.address}
                   onClick={()=>setShow(true)}
                   disabled={disabled}
+                  readOnly
                 />
                 <label htmlFor="address">Address</label>
               </div>

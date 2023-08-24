@@ -5,6 +5,8 @@ import { useImageUpload } from "../hooks/useImageUpload";
 import { Card } from "react-bootstrap";
 import "../assets/css/hospital-signup.css";
 import { useHospitalSignUp } from "../hooks/useHospitalSignUp";
+import AddressInputPhone from "../../maps/components/address-input-mobile";
+import { useMap } from "../../maps/hooks/useMap";
 
 const HospitalSignUp = () => {
   const { imageURL, setImage, upload_image } = useImageUpload(
@@ -21,6 +23,8 @@ const HospitalSignUp = () => {
     setPhoneNumber,
     signup,
   } = useHospitalSignUp();
+
+  const {address, location, placesAutoComplete}=useMap();
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -76,6 +80,7 @@ const HospitalSignUp = () => {
                 />
                 <label htmlFor="closingTime">Closing Time</label>
               </div>
+              <AddressInputPhone address={address} location={location} placesAutoComplete={placesAutoComplete} disabled={false}/>
             <button
               type="submit"
               className="custom-button"
