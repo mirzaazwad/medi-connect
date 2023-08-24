@@ -1,22 +1,14 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-export const useCustomerSignUp=()=>{
+export const useDoctorSignUp=()=>{
   const [phone_number,setPhoneNumber]=useState<string>("");
-  const navigate=useNavigate();
+  const [laundry_name,setLaundryName]=useState<string>("");
+  const [opening_time,setOpeningTime]=useState<string>("");
+  const [closing_time,setClosingTime]=useState<string>("");
   const [loading,isLoading]=useState(false);
   const [error,setError]=useState("");
-  const [email,setEmail]=useState("");
-  const user:string|null=localStorage.getItem("user");
-  useEffect(()=>{
-    if(user!==null){
-      setEmail(JSON.parse(user).email);
-    }
-    else{
-      navigate('/signup');
-    }
-  },[])
+  const [email]=useState("");
 
 
   const signup=async(phone_number:string,profile_picture:string|undefined,address:string,location:{lat:number,lng:number})=>{
@@ -38,7 +30,5 @@ export const useCustomerSignUp=()=>{
     return result;
   }
 
-  return {phone_number,setPhoneNumber,loading,error,setError,signup};
+  return {laundry_name,setLaundryName,opening_time,setOpeningTime,closing_time,setClosingTime,phone_number,setPhoneNumber,loading,error,setError,signup};
 }
- 
-export default useCustomerSignUp;

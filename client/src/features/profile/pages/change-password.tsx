@@ -6,9 +6,9 @@ import { EyeFill, EyeSlashFill } from "react-bootstrap-icons";
 import { useState } from "react";
 import '../assets/css/change-password.css';
 import { useNavigate, useParams } from "react-router-dom";
-import NavbarCustomer from "../../../partials/navbarCustomer";
-import NavbarPharmacy from "../../../partials/navbarPharmacy";
-import NavbarDelivery from "../../../partials/navbarDelivery";
+import NavbarCustomer from "../../../partials/navbarPatient";
+import NavbarPharmacy from "../../../partials/navbarDoctor";
+import NavbarDelivery from "../../../partials/navbarHospital";
 import { IonIcon } from "@ionic/react";
 import { lockClosedOutline, lockOpenOutline } from "ionicons/icons";
 

@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { InputGroup } from "react-bootstrap";
-import ConfirmPasswordModal from "./confirm-password-modal";
 import Loader from "../../../partials/loader";
-import useDeliveryForm from '../hooks/useDeliveryForm'
+import useCustomerForm from "../hooks/useCustomerForm";
 import { callOutline, mailUnreadOutline, personCircleOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
+import AddressInputPhone from "../../maps/components/address-input-mobile";
+import { useMap } from "../../maps/hooks/useMap";
+import ConfirmPasswordModal from "./confirm-password-modal";
 
-const ProfileFormDelivery = () => {
+const ProfileFormPatient = () => {
   const [isDisabled,turnOnEdit]=useState<boolean>(true);
   const email="mirzaazwad8@gmail.com";
-  const {username,setUsername,password,setPassword,phone,setPhoneNumber,isLoading,error}=useDeliveryForm("mirzaazwad8@gmail.com");
+  const {username,setUsername,password,setPassword,phone,setPhoneNumber,isLoading,error}=useCustomerForm(email);
+  const { address, location, placesAutoComplete } = useMap();
   const [passwordVisibility,setPasswordVisibility]=useState("password");
   const [show,setShow]=useState(false);
 
@@ -19,7 +21,7 @@ const ProfileFormDelivery = () => {
     e.preventDefault();
   }
 
-  if(!isLoading){
+  if(!isLoading){ 
     return (
       <div>
         <div className="profileInfo d-flex justify-content-between">
@@ -34,27 +36,31 @@ const ProfileFormDelivery = () => {
         </div>
         <Form>
         <div className="error" style={{color:"red"}}>{error}</div>
+
           <div className="inputbox">
-          <IonIcon icon={personCircleOutline}></IonIcon>
+            <IonIcon icon={personCircleOutline}></IonIcon>
             <input
               type="text"
               disabled={isDisabled}
-              id="username"
               value={username}
+              id="username"
               onChange={(e)=>setUsername(e.target.value)}
               />
               <label htmlFor="username">Name</label>
           </div>
           <div className="inputbox">
           <IonIcon icon={callOutline}></IonIcon>
-          <input type="text" id="phone" disabled={isDisabled} value ={phone} onChange={(e)=>setPhoneNumber(e.target.value)} />
+          <input type="text" pattern="[01]{2}[3-9]{1}[0-9]{8}" disabled={isDisabled} value ={phone} id="phone" onChange={(e)=>setPhoneNumber(e.target.value)} />
           <label htmlFor="phone">Contact No.</label>
-          
         </div>
         <div className="inputbox">
           <IonIcon icon={mailUnreadOutline}></IonIcon>
           <input type="email" disabled={true} value ={email} id="email" />
         </div>
+         <div className="addressbox">
+         <AddressInputPhone address={address} location={location} placesAutoComplete={placesAutoComplete} disabled={isDisabled}/>
+         </div>
+          {/* {!googleId && isEditing &&(<a href={"changePassword/" + user._id} style={{marginLeft:"75%"}}>Change Password</a>)} */}
         {!isDisabled && (
           <Button className="btn btn-outline-dark btn-save" disabled={isLoading}>
             Save
@@ -71,4 +77,4 @@ const ProfileFormDelivery = () => {
     );
   }
 };
-export default ProfileFormDelivery;
+export default ProfileFormPatient;

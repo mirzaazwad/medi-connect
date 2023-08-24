@@ -1,16 +1,15 @@
 import { IonIcon } from "@ionic/react";
-import { bicycleOutline, callOutline, chevronDownCircleOutline, walkOutline } from "ionicons/icons";
+import { bicycleOutline, callOutline, walkOutline } from "ionicons/icons";
 import ImageInput from "../../../partials/imageInput";
 import { useImageUpload } from "../hooks/useImageUpload";
-import { useNavigate } from "react-router";
 import { Card } from "react-bootstrap";
-import "../assets/css/delivery-signup.css";
-import { useDeliverySignUp } from "../hooks/useDeliverySignUp";
+import "../assets/css/hospital-signup.css";
+import { useHospitalSignUp } from "../hooks/useHospitalSignUp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faMotorcycle } from '@fortawesome/free-solid-svg-icons'
+import { faMotorcycle } from '@fortawesome/free-solid-svg-icons'
 
-const DeliverySignUp = () => {
-  const { imageURL, setImage, errorImage, upload_image } = useImageUpload(
+const HospitalSignUp = () => {
+  const { imageURL, setImage, upload_image } = useImageUpload(
     "/customerProfilePicture.jpg"
   );
   const {
@@ -18,12 +17,8 @@ const DeliverySignUp = () => {
     setTransportation,
     phone_number,
     setPhoneNumber,
-    loading,
-    error,
-    setError,
     signup,
-  } = useDeliverySignUp();
-  const navigate = useNavigate();
+  } = useHospitalSignUp();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,8 +26,8 @@ const DeliverySignUp = () => {
   };
 
   return (
-    <Card className="manager-signup">
-      <div className="delivery-signup">
+    <Card className="doctor-signup">
+      <div className="hospital-signup">
         <Card.Header>
           <h2>Delivery Man Registration</h2>
         </Card.Header>
@@ -91,4 +86,4 @@ const DeliverySignUp = () => {
   );
 };
 
-export default DeliverySignUp;
+export default HospitalSignUp;

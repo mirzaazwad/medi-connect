@@ -1,19 +1,19 @@
-import ProfileFormDelivery from "../components/delivery-form";
-import { useState } from "react";
-import ImageInput from "../../../partials/imageInput";
-import { useImageUpload } from "../../user-signup/hooks/useImageUpload";
-import NavbarDelivery from "../../../partials/navbarDelivery";
-import Loader from "../../../partials/loader";
+import { useState } from 'react';
+import ImageInput from '../../../partials/imageInput';
+import { useImageUpload } from '../../user-signup/hooks/useImageUpload';
+import Loader from '../../../partials/loader';
 import '../assets/css/profile.css';
+import ProfileFormDoctor from '../components/doctor-form';
+import NavbarPharmacy from '../../../partials/navbarDoctor';
 
-const  ProfilePageForDelivery = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const  ProfilePageForDoctor = () => {
+  const [isLoading] = useState(false);
   const {imageURL,setImage,upload_image}=useImageUpload("/brokenProfilePicture.jpg");
 
     if(!isLoading){
       return (     
         <div>
-          <NavbarDelivery/>
+          <NavbarPharmacy/>
           <section>
           <div className="container h-100">
             <div className="pt-5">
@@ -21,7 +21,7 @@ const  ProfilePageForDelivery = () => {
             <div className="d-flex justify-content-around h-100 mx-auto my-5 w-100" style={{alignItems : 'center'}}>
             <div className="my-3 d-none d-lg-flex"><ImageInput imageURL={imageURL} setImage={setImage} upload_image={upload_image}/></div>
               <div className="profile-form-outer w-50 mt-5">
-                <ProfileFormDelivery/>
+                <ProfileFormDoctor/>
               </div>
             </div>
           </div>
@@ -36,5 +36,5 @@ const  ProfilePageForDelivery = () => {
     }
   }
    
-  export default  ProfilePageForDelivery;
+  export default  ProfilePageForDoctor;
 

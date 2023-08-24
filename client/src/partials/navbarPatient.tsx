@@ -1,7 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Badge from 'react-bootstrap/Badge';
 import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate} from 'react-router-dom';
 import { useState } from 'react';
@@ -10,7 +9,7 @@ import { cartSharp } from 'ionicons/icons';
 import '../assets/css/navbar.css';
 import Cart from './cart';
 
-const NavbarCustomer=()=>{
+const NavbarPatient=()=>{
   const[cartView, setCartView] = useState(false);
   const navigate=useNavigate();
 
@@ -21,7 +20,7 @@ const NavbarCustomer=()=>{
   return (
     <Navbar className='customNavbar fixed-top ' variant="dark" expand="lg">
       <Container fluid className='navbarContents px-0 px-lg-5 d-flex justify-content-between' >
-        <Navbar.Brand className='px-2'  href={`/profileBuyer`}>M e d G u a r d</Navbar.Brand>
+        <Navbar.Brand className='px-2'  href={`/profileBuyer`}>M e d i C o n n e c t</Navbar.Brand>
         <Button className='mobileIcons bg-transparent me-3' onClick={()=>{setCartView(true)}}><IonIcon icon={cartSharp}></IonIcon></Button>
         <Navbar.Toggle className='px-2' aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -31,9 +30,6 @@ const NavbarCustomer=()=>{
             navbarScroll
           >
             <Nav.Link href={`/customer/profile`}>Profile</Nav.Link>
-            <Nav.Link href={`/customer/pharmacy`}>Pharmacies</Nav.Link>
-            <Nav.Link href={`/customer/prescription`}>Prescriptions</Nav.Link>
-            <Nav.Link href={`/customer/order`}>My Orders</Nav.Link>
             <Nav.Link className="d-block d-lg-none c" onClick={handleLogout}>Log Out</Nav.Link>
             
           </Nav>
@@ -52,5 +48,5 @@ const NavbarCustomer=()=>{
 }
 
 
-export default NavbarCustomer;
+export default NavbarPatient;
 

@@ -7,17 +7,12 @@ import {
 } from "ionicons/icons";
 import ImageInput from "../../../partials/imageInput";
 import { useImageUpload } from "../hooks/useImageUpload";
-import { useNavigate } from "react-router";
-import Map from "../../maps/components/map-card/map";
-import { useMap } from "../../maps/hooks/useMap";
 import { Card } from "react-bootstrap";
-import "../assets/css/manager-signup.css";
-import AddressInputDesktop from "../../maps/components/address-input-desktop";
-import AddressInputPhone from "../../maps/components/address-input-mobile";
-import { useManagerSignUp } from "../hooks/useManagerSignUp";
+import "../assets/css/doctor-signup.css";
+import { useDoctorSignUp } from "../hooks/useDoctorSignUp";
 
-const ManagerSignUp = () => {
-  const { imageURL, setImage, errorImage, upload_image } = useImageUpload(
+const DoctorSignUp = () => {
+  const { imageURL, setImage, upload_image } = useImageUpload(
     "/pharmacyProfilePicture.png"
   );
   const {
@@ -29,27 +24,23 @@ const ManagerSignUp = () => {
     setClosingTime,
     phone_number,
     setPhoneNumber,
-    loading,
-    error,
-    setError,
+
     signup,
-  } = useManagerSignUp();
-  const { address, location, placesAutoComplete } = useMap();
-  const navigate = useNavigate();
+  } = useDoctorSignUp();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await signup(phone_number, imageURL, address.address, location.location);
+    await signup(phone_number, imageURL, "address.address", {lat:1,lng:1});
   };
 
   return (
-    <Card className="manager-signup">
+    <Card className="doctor-signup">
       <Card.Header>
         <h2>Pharmacy Registration</h2>
       </Card.Header>
       <Card.Body>
-        <div className="manager-signup-container">
-          <div className="manager-signup-content">
+        <div className="doctor-signup-container">
+          <div className="doctor-signup-content">
             <form onSubmit={handleSubmit}>
               <ImageInput
                 imageURL={imageURL}
@@ -80,20 +71,6 @@ const ManagerSignUp = () => {
                   onChange={(e) => setPhoneNumber(e.target.value)}
                 />
                 <label htmlFor="">Phone Number</label>
-              </div>
-              <div className="address-input-phone">
-                <AddressInputPhone
-                  address={address}
-                  location={location}
-                  placesAutoComplete={placesAutoComplete}
-                  disabled={false}
-                />
-              </div>
-              <div className="address-input-desktop">
-                <AddressInputDesktop
-                  address={address}
-                  placesAutoComplete={placesAutoComplete}
-                />
               </div>
               <div className="inputbox mx-auto">
                 <IonIcon icon={timeOutline}></IonIcon>
@@ -128,11 +105,6 @@ const ManagerSignUp = () => {
             </form>
           </div>
           <div className="manager-signup-map">
-            <Map
-              location={location.location}
-              setLocation={location.setLocation}
-              setAddress={address.setAddress}
-            />
           </div>
         </div>
       </Card.Body>
@@ -140,4 +112,4 @@ const ManagerSignUp = () => {
   );
 };
 
-export default ManagerSignUp;
+export default DoctorSignUp;

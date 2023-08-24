@@ -1,23 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useState } from "react";
 
-export const useDeliverySignUp=()=>{
+export const useHospitalSignUp=()=>{
   const [phone_number,setPhoneNumber]=useState<string>("");
   const [transportation,setTransportation]=useState<string>("cycle");
-  const navigate=useNavigate();
   const [loading,isLoading]=useState(false);
   const [error,setError]=useState("");
-  const [email,setEmail]=useState("");
-  const user:string|null=localStorage.getItem("user");
-  useEffect(()=>{
-    if(user!==null){
-      setEmail(JSON.parse(user).email);
-    }
-    else{
-      navigate('/signup');
-    }
-  },[])
+  const [email]=useState("");
 
 
   const signup=async(phone_number:string,profile_picture:string|undefined)=>{
@@ -40,4 +29,4 @@ export const useDeliverySignUp=()=>{
   return {transportation,setTransportation,phone_number,setPhoneNumber,loading,error,setError,signup};
 }
  
-export default useDeliverySignUp;
+export default useHospitalSignUp;

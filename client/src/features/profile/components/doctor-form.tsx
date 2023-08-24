@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Loader from "../../../partials/loader";
@@ -11,7 +11,7 @@ import ConfirmPasswordModal from "./confirm-password-modal";
 import { faClinicMedical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ProfileFormPharmacy=()=> {
+const ProfileFormDoctor=()=> {
   const [isDisabled,turnOnEdit]=useState<boolean>(true);
   const email="mirzaazwad8@gmail.com";
   const {pharmacy,setPharmacy,username,setUsername,password,setPassword,phone,setPhoneNumber,isLoading,error}=usePharmacyForm("mirzaazwad8@gmail.com");
@@ -90,4 +90,4 @@ const ProfileFormPharmacy=()=> {
   }
 }
 
-export default ProfileFormPharmacy;
+export default ProfileFormDoctor;
