@@ -1,24 +1,27 @@
 import { IonIcon } from "@ionic/react";
-import { bicycleOutline, callOutline, walkOutline } from "ionicons/icons";
+import {callOutline, timeOutline, timerOutline } from "ionicons/icons";
 import ImageInput from "../../../partials/imageInput";
 import { useImageUpload } from "../hooks/useImageUpload";
 import { Card } from "react-bootstrap";
 import "../assets/css/hospital-signup.css";
 import { useHospitalSignUp } from "../hooks/useHospitalSignUp";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMotorcycle } from '@fortawesome/free-solid-svg-icons'
 
 const HospitalSignUp = () => {
   const { imageURL, setImage, upload_image } = useImageUpload(
-    "/customerProfilePicture.jpg"
+    "/hospitalProfilePicture.jpg"
   );
   const {
     transportation,
     setTransportation,
+    opening_time,
+    setOpeningTime,
+    closing_time,
+    setClosingTime,
     phone_number,
     setPhoneNumber,
     signup,
   } = useHospitalSignUp();
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,7 +32,7 @@ const HospitalSignUp = () => {
     <Card className="doctor-signup">
       <div className="hospital-signup">
         <Card.Header>
-          <h2>Delivery Man Registration</h2>
+          <h2>Hospital Registration</h2>
         </Card.Header>
         <Card.Body>
           <form onSubmit={handleSubmit}>
@@ -51,26 +54,28 @@ const HospitalSignUp = () => {
               />
               <label htmlFor="">Phone Number</label>
             </div>
-            <div className="mx-auto">
-            <label htmlFor="">Transportation Mode</label>
-            <div className="radio-button-group">
-              <button type="button" className={`radio-button ${
-                transportation === "cycle"
-                  ? "radio-button"
-                  : "radio-button-outline"
-              }`} onClick={()=>{setTransportation("cycle")}}>Bicycle <IonIcon icon={bicycleOutline}/></button>
-              <button type="button" className={`radio-button ${
-                transportation === "bike"
-                  ? "radio-button"
-                  : "radio-button-outline"
-              }`} onClick={()=>{setTransportation("bike")}}>Moto <FontAwesomeIcon icon={faMotorcycle} /></button>
-              <button type="button" className={`radio-button ${
-                transportation === "walk"
-                  ? "radio-button"
-                  : "radio-button-outline"
-              }`} onClick={()=>{setTransportation("walk")}}>Walking <IonIcon icon={walkOutline}/></button>
-            </div>
-            </div>
+            <div className="inputbox mx-auto">
+                <IonIcon icon={timeOutline}></IonIcon>
+                <input
+                  type="time"
+                  name="openingTime"
+                  id="openingTime"
+                  value={opening_time}
+                  onChange={(e) => setOpeningTime(e.target.value)}
+                />
+                <label htmlFor="openingTime">Opening Time</label>
+              </div>
+              <div className="inputbox mx-auto">
+                <IonIcon icon={timerOutline}></IonIcon>
+                <input
+                  type="time"
+                  name="closingTime"
+                  id="closingTime"
+                  value={closing_time}
+                  onChange={(e) => setClosingTime(e.target.value)}
+                />
+                <label htmlFor="closingTime">Closing Time</label>
+              </div>
             <button
               type="submit"
               className="custom-button"

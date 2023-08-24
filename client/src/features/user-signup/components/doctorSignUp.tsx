@@ -13,7 +13,7 @@ import { useDoctorSignUp } from "../hooks/useDoctorSignUp";
 
 const DoctorSignUp = () => {
   const { imageURL, setImage, upload_image } = useImageUpload(
-    "/pharmacyProfilePicture.png"
+    "/doctorProfilePicture.jpg"
   );
   const {
     laundry_name,
@@ -35,12 +35,13 @@ const DoctorSignUp = () => {
 
   return (
     <Card className="doctor-signup">
+      <div className="hospital-signup">
       <Card.Header>
-        <h2>Pharmacy Registration</h2>
+        <h2>Doctor Registration</h2>
       </Card.Header>
       <Card.Body>
-        <div className="doctor-signup-container">
-          <div className="doctor-signup-content">
+        <div className="hospital-signup-container">
+          <div className="hospital-signup-content">
             <form onSubmit={handleSubmit}>
               <ImageInput
                 imageURL={imageURL}
@@ -57,7 +58,7 @@ const DoctorSignUp = () => {
                   value={laundry_name}
                   onChange={(e) => setLaundryName(e.target.value)}
                 />
-                <label htmlFor="">Laundry Name</label>
+                <label htmlFor="">Doctor Name</label>
               </div>
               <div className="inputbox mx-auto">
                 <IonIcon icon={callOutline}></IonIcon>
@@ -104,10 +105,9 @@ const DoctorSignUp = () => {
               </button>
             </form>
           </div>
-          <div className="manager-signup-map">
-          </div>
         </div>
       </Card.Body>
+      </div>
     </Card>
   );
 };

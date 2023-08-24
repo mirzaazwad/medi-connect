@@ -5,6 +5,8 @@ export const useHospitalSignUp=()=>{
   const [phone_number,setPhoneNumber]=useState<string>("");
   const [transportation,setTransportation]=useState<string>("cycle");
   const [loading,isLoading]=useState(false);
+  const [opening_time,setOpeningTime]=useState<string>("");
+  const [closing_time,setClosingTime]=useState<string>("");
   const [error,setError]=useState("");
   const [email]=useState("");
 
@@ -26,7 +28,7 @@ export const useHospitalSignUp=()=>{
     return result;
   }
 
-  return {transportation,setTransportation,phone_number,setPhoneNumber,loading,error,setError,signup};
+  return {transportation,setTransportation,phone_number,setPhoneNumber,opening_time,setOpeningTime,closing_time,setClosingTime,loading,error,setError,signup};
 }
  
 export default useHospitalSignUp;

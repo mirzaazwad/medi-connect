@@ -8,7 +8,7 @@ import "../assets/css/patient-signup.css";
 
 const PatientSignUp = () => {
   const { imageURL, setImage, upload_image } = useImageUpload(
-    "/PatientProfilePicture.jpg"
+    "/patientProfilePicture.png"
   );
   const {
     phone_number,
@@ -22,13 +22,14 @@ const PatientSignUp = () => {
   };
 
   return (
-    <Card className="patient-signup">
+    <Card className="doctor-signup">
+      <div className="hospital-signup">
       <Card.Header>
         <h2>Patient Registration</h2>
       </Card.Header>
       <Card.Body>
-        <div className="patient-signup-container">
-          <div className="patient-signup-content">
+        <div className="hospital-signup-container">
+          <div className="hospital-signup-content">
             <form onSubmit={handleSubmit}>
               <ImageInput
                 imageURL={imageURL}
@@ -58,10 +59,9 @@ const PatientSignUp = () => {
               </button>
             </form>
           </div>
-          <div className="Patient-signup-map">
-          </div>
         </div>
       </Card.Body>
+      </div>
     </Card>
   );
 };
