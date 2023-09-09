@@ -4,7 +4,8 @@ import ImageInput from "../../../partials/imageInput";
 import { useImageUpload } from "../hooks/useImageUpload";
 import { usePatientSignUp } from "../hooks/usePatientSignUp";
 import { Card } from "react-bootstrap";
-import "../assets/css/patient-signup.css";
+import "../assets/css/doctor-signup.css";
+import "../assets/css/hospital-signup.css";
 
 const PatientSignUp = () => {
   const { imageURL, setImage, upload_image } = useImageUpload(

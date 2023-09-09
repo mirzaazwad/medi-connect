@@ -1,9 +1,10 @@
 import { IonIcon } from "@ionic/react";
-import {callOutline, timeOutline, timerOutline } from "ionicons/icons";
+import {callOutline, medicalOutline, timeOutline, timerOutline } from "ionicons/icons";
 import ImageInput from "../../../partials/imageInput";
 import { useImageUpload } from "../hooks/useImageUpload";
 import { Card } from "react-bootstrap";
 import "../assets/css/hospital-signup.css";
+import "../assets/css/doctor-signup.css";
 import { useHospitalSignUp } from "../hooks/useHospitalSignUp";
 import AddressInputPhone from "../../maps/components/address-input-mobile";
 import { useMap } from "../../maps/hooks/useMap";
@@ -13,8 +14,8 @@ const HospitalSignUp = () => {
     "/hospitalProfilePicture.jpg"
   );
   const {
-    transportation,
-    setTransportation,
+    hospital,
+    setHospital,
     opening_time,
     setOpeningTime,
     closing_time,
@@ -36,7 +37,7 @@ const HospitalSignUp = () => {
     <Card className="doctor-signup">
       <div className="hospital-signup">
         <Card.Header>
-          <h2>Hospital Registration</h2>
+          <h2>Administrator Registration</h2>
         </Card.Header>
         <Card.Body>
           <form onSubmit={handleSubmit}>
@@ -45,6 +46,18 @@ const HospitalSignUp = () => {
               setImage={setImage}
               upload_image={upload_image}
             />
+            <div className="inputbox mx-auto">
+              <IonIcon icon={medicalOutline}></IonIcon>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                required
+                value={hospital}
+                onChange={(e) => setHospital(e.target.value)}
+              />
+              <label htmlFor="">Hospital Name</label>
+            </div>
             <div className="inputbox mx-auto">
               <IonIcon icon={callOutline}></IonIcon>
               <input
