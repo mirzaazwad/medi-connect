@@ -1,3 +1,4 @@
+import PaginationComponent from "../../../components/pagination";
 import NavbarAdmin from "../../../partials/navbarAdmin";
 import AdminCard from "../components/administratorCard";
 
@@ -9,6 +10,7 @@ const AdminAdministrator = () => {
             <div style={{marginRight:"5%",marginTop:"7%"}}>
                 {admins.map((admin)=><AdminCard/>)}
             </div>
+            <PaginationComponent currentPage={1} totalPages={12} handleFirstPageClick={()=>{}} handleNextPageClick={()=>{}} handleLastPageClick={()=>{}} handlePageChange={()=>{}} handlePrevPageClick={()=>{}}/>
         </div>
      );
 }

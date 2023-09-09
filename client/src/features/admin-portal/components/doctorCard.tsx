@@ -27,10 +27,9 @@ const DoctorCard = () => {
         </Card.Body>
         <Card.Footer>
             <div className="float-end">
-                <button className="btn btn-primary">Approve</button>
+                <button className="btn btn-primary me-2">Approve</button>
                 <button className="btn btn-danger">Decline</button>
             </div>
-            <small className="text-muted">Last updated 3 mins ago</small>
         </Card.Footer>
     </Card> 
     );
