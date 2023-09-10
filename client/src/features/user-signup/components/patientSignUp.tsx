@@ -1,30 +1,25 @@
 import { IonIcon } from "@ionic/react";
-import { callOutline } from "ionicons/icons";
+import { callOutline, cardOutline } from "ionicons/icons";
 import ImageInput from "../../../partials/imageInput";
 import { useImageUpload } from "../hooks/useImageUpload";
 import { usePatientSignUp } from "../hooks/usePatientSignUp";
 import { Card } from "react-bootstrap";
-import "../assets/css/doctor-signup.css";
-import "../assets/css/hospital-signup.css";
+import "../assets/css/patient-signup.css";
 
 const PatientSignUp = () => {
   const { imageURL, setImage, upload_image } = useImageUpload(
     "/patientProfilePicture.png"
   );
   const {
-    phone_number,
-    setPhoneNumber,
-    signup,
-  } = usePatientSignUp();
+    phone_number,setPhoneNumber,nid_number,setNIDNumber,loading,error,setError,signup} = usePatientSignUp();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await signup(phone_number, imageURL, "1232", {lat:1,lng:1});
+    await signup(phone_number,nid_number, imageURL, "1232", {lat:1,lng:1});
   };
 
   return (
-    <Card className="doctor-signup">
-      <div className="hospital-signup">
+    <Card className="patient-signup">
       <Card.Header>
         <h2>Patient Registration</h2>
       </Card.Header>
@@ -50,6 +45,19 @@ const PatientSignUp = () => {
                 />
                 <label htmlFor="">Phone Number</label>
               </div>
+              <div className="inputbox mx-auto">
+                <IonIcon icon={cardOutline}></IonIcon>
+                <input
+                  type="text"
+                  pattern="[01]{2}[3-9]{1}[0-9]{8}"
+                  id="phone"
+                  name="phone"
+                  required
+                  value={nid_number}
+                  onChange={(e) => setNIDNumber(e.target.value)}
+                />
+                <label htmlFor="">NID Number</label>
+              </div>
               <button
                 type="submit"
                 className="custom-button"
@@ -62,7 +70,6 @@ const PatientSignUp = () => {
           </div>
         </div>
       </Card.Body>
-      </div>
     </Card>
   );
 };

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const usePatientSignUp=()=>{
   const [phone_number,setPhoneNumber]=useState<string>("");
+  const [nid_number,setNIDNumber]=useState<string>("");
   const navigate=useNavigate();
   const [loading,isLoading]=useState(false);
   const [error,setError]=useState("");
@@ -11,10 +12,11 @@ export const usePatientSignUp=()=>{
   const user:string|null=localStorage.getItem("user");
 
 
-  const signup=async(phone_number:string,profile_picture:string|undefined,address:string,location:{lat:number,lng:number})=>{
+  const signup=async(phone_number:string,nid_number:string,profile_picture:string|undefined,address:string,location:{lat:number,lng:number})=>{
     isLoading(true);
-    const result=await axios.patch('http://localhost:8000/api/customer/signup/'+email,{
+    const result=await axios.patch('http://localhost:8000/api/patient/signup/'+email,{
       phone_number:phone_number,
+      nid_number:nid_number,
       address:address,
       location:location,
       profile_picture:profile_picture
@@ -30,7 +32,7 @@ export const usePatientSignUp=()=>{
     return result;
   }
 
-  return {phone_number,setPhoneNumber,loading,error,setError,signup};
+  return {phone_number,setPhoneNumber,nid_number,setNIDNumber,loading,error,setError,signup};
 }
  
 export default usePatientSignUp;

@@ -11,11 +11,15 @@ export const useHospitalSignUp=()=>{
   const [email]=useState("");
 
 
-  const signup=async(phone_number:string,profile_picture:string|undefined)=>{
+  const signup=async(profile_picture:string|undefined)=>{
     isLoading(true);
-    const result=await axios.patch('http://localhost:8000/api/customer/signup/'+email,{
+    const result=await axios.patch('http://localhost:8000/api/hospital/signup/'+email,{
       phone_number:phone_number,
-      profile_picture:profile_picture
+      hospital:hospital,
+      profile_picture:profile_picture,
+      opening_time:opening_time,
+      closing_time:closing_time,
+      phone_number_verified:false
     }).then((res)=>{
       isLoading(false);
       setError("");

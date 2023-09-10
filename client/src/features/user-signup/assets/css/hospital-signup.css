@@ -4,12 +4,11 @@
   background-color: var(--white) !important;
   color: var(--customDarkBlue) !important;
   position: fixed;
-  margin-right:15% !important;
-  margin-left:15% !important;
-  top: 20% !important;
-  margin-top:10% !important;
+  margin-right:30% !important;
+  margin-left:30% !important;
+  top:2% !important;
   margin-right:5% !important;
-  width: 70% !important;
+  width: 40% !important;
   height: auto;
   border: 1px solid rgba(255, 255, 255);
   border-radius: 15px;

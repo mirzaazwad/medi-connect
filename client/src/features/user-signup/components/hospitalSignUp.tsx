@@ -6,8 +6,6 @@ import { Card } from "react-bootstrap";
 import "../assets/css/hospital-signup.css";
 import "../assets/css/doctor-signup.css";
 import { useHospitalSignUp } from "../hooks/useHospitalSignUp";
-import AddressInputPhone from "../../maps/components/address-input-mobile";
-import { useMap } from "../../maps/hooks/useMap";
 
 const HospitalSignUp = () => {
   const { imageURL, setImage, upload_image } = useImageUpload(
@@ -25,7 +23,6 @@ const HospitalSignUp = () => {
     signup,
   } = useHospitalSignUp();
 
-  const {address, location, placesAutoComplete}=useMap();
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -34,8 +31,7 @@ const HospitalSignUp = () => {
   };
 
   return (
-    <Card className="doctor-signup">
-      <div className="hospital-signup">
+    <Card className="hospital-signup">
         <Card.Header>
           <h2>Administrator Registration</h2>
         </Card.Header>
@@ -93,7 +89,6 @@ const HospitalSignUp = () => {
                 />
                 <label htmlFor="closingTime">Closing Time</label>
               </div>
-              <AddressInputPhone address={address} location={location} placesAutoComplete={placesAutoComplete} disabled={false}/>
             <button
               type="submit"
               className="custom-button"
@@ -104,7 +99,6 @@ const HospitalSignUp = () => {
             </button>
           </form>
         </Card.Body>
-      </div>
     </Card>
   );
 };

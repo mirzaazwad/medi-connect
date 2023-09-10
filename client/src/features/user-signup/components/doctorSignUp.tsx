@@ -1,7 +1,9 @@
 import { IonIcon } from "@ionic/react";
 import {
   callOutline,
+  cardOutline,
   homeOutline,
+  personCircleOutline,
   timeOutline,
   timerOutline,
 } from "ionicons/icons";
@@ -16,26 +18,26 @@ const DoctorSignUp = () => {
     "/doctorProfilePicture.jpg"
   );
   const {
-    laundry_name,
-    setLaundryName,
+    doctor_name,
+    setDoctorName,
+    nid_number,
+    setNIDNumber,
     opening_time,
     setOpeningTime,
     closing_time,
     setClosingTime,
     phone_number,
     setPhoneNumber,
-
     signup,
   } = useDoctorSignUp();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await signup(phone_number, imageURL, "address.address", {lat:1,lng:1});
+    await signup(imageURL);
   };
 
   return (
     <Card className="doctor-signup">
-      <div className="hospital-signup">
       <Card.Header>
         <h2>Doctor Registration</h2>
       </Card.Header>
@@ -49,14 +51,14 @@ const DoctorSignUp = () => {
                 upload_image={upload_image}
               />
               <div className="inputbox mx-auto">
-                <IonIcon icon={homeOutline}></IonIcon>
+                <IonIcon icon={personCircleOutline}></IonIcon>
                 <input
                   type="text"
                   required
-                  id="laundry_name"
-                  name="laundry_name"
-                  value={laundry_name}
-                  onChange={(e) => setLaundryName(e.target.value)}
+                  id="doctor_name"
+                  name="doctor_name"
+                  value={doctor_name}
+                  onChange={(e) => setDoctorName(e.target.value)}
                 />
                 <label htmlFor="">Doctor Name</label>
               </div>
@@ -72,6 +74,19 @@ const DoctorSignUp = () => {
                   onChange={(e) => setPhoneNumber(e.target.value)}
                 />
                 <label htmlFor="">Phone Number</label>
+              </div>
+              <div className="inputbox mx-auto">
+                <IonIcon icon={cardOutline}></IonIcon>
+                <input
+                  type="text"
+                  pattern="[01]{2}[3-9]{1}[0-9]{8}"
+                  id="phone"
+                  name="phone"
+                  required
+                  value={nid_number}
+                  onChange={(e) => setNIDNumber(e.target.value)}
+                />
+                <label htmlFor="">NID Number</label>
               </div>
               <div className="inputbox mx-auto">
                 <IonIcon icon={timeOutline}></IonIcon>
@@ -107,7 +122,6 @@ const DoctorSignUp = () => {
           </div>
         </div>
       </Card.Body>
-      </div>
     </Card>
   );
 };
