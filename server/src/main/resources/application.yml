@@ -1,1 +1,6 @@
-
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://medezadmin:123@newcluster.ecrflkv.mongodb.net/medi_connect
+      username: medezadmin
+      password: 123
